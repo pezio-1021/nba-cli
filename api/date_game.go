@@ -53,13 +53,13 @@ type DateGames struct {
 	} `json:"api"`
 }
 
-func (c *Client) GetDateGames(ctx context.Context, date string) (*interface{}, error) {
+func (c *Client) GetDateGames(ctx context.Context, date string) (*DateGames, error) {
 	relativePath := "games/date/"
 	games := new(DateGames)
-	req, err := c.GetRequestResult(ctx, http.MethodGet, relativePath, date, games)
+	err := c.GetRequestResult(ctx, http.MethodGet, relativePath, date, games)
 	if err != nil {
 		return nil, err
 	}
 
-	return &req, err
+	return games, nil
 }

@@ -40,25 +40,25 @@ func New(Key string, logger *log.Logger) (*Client, error) {
 	}, nil
 }
 
-func (c *Client) GetRequestResult(ctx context.Context, method, relativePath string, querie string, respBody interface{}) (interface{}, error) {
+func (c *Client) GetRequestResult(ctx context.Context, method, relativePath string, querie string, respBody interface{}) error {
 	req, err := c.MakeRequest(ctx, http.MethodGet, relativePath, querie)
 	if err != nil {
-		return nil, err
+		return err
 	}
 	code, err := c.DoRequest(req, &respBody)
 	if err != nil {
-		return 0, err
+		return err
 	}
 
 	switch code {
 	case http.StatusOK:
-		return respBody, nil
+		return nil
 	case http.StatusBadRequest:
-		return nil, errors.New("bad request. some parameters may be invalid")
+		return errors.New("bad request. some parameters may be invalid")
 	case http.StatusNotFound:
-		return nil, fmt.Errorf("not found. user with id  may not exist")
+		return fmt.Errorf("not found. user with id  may not exist")
 	default:
-		return nil, errors.New("unexpected error1")
+		return errors.New("unexpected error1")
 	}
 }
 
@@ -68,6 +68,7 @@ func (c *Client) MakeRequest(ctx context.Context, method, relativePath string, q
 	if queries != "" {
 		url = url + queries
 	}
+
 	req, _ := http.NewRequest("GET", url, nil)
 
 	// set header
@@ -79,7 +80,6 @@ func (c *Client) MakeRequest(ctx context.Context, method, relativePath string, q
 
 func (c *Client) DoRequest(req *http.Request, respBody interface{}) (int, error) {
 	resp, err := c.HTTPClient.Do(req)
-	fmt.Println(resp)
 	if err != nil {
 		return 0, err
 	}
