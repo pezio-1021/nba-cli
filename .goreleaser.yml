@@ -1,6 +1,6 @@
 project_name: nba-cli
 env:
-  - GO111MODULE=on
+  - GO111MODULE=
 before:
   hooks:
     - go mod tidy
