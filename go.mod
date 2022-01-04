@@ -23,8 +23,11 @@ require (
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
+	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
+	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
+	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/spf13/afero v1.7.0 // indirect
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/cobra v1.3.0 // indirect

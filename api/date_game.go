@@ -3,7 +3,6 @@ package api
 import (
 	"context"
 	"net/http"
-	"time"
 )
 
 type DateGames struct {
@@ -13,22 +12,20 @@ type DateGames struct {
 		Results int      `json:"results"`
 		Filters []string `json:"filters"`
 		Games   []struct {
-			SeasonYear      string    `json:"seasonYear"`
-			League          string    `json:"league"`
-			GameID          string    `json:"gameId"`
-			StartTimeUTC    time.Time `json:"startTimeUTC"`
-			EndTimeUTC      time.Time `json:"endTimeUTC"`
-			Arena           string    `json:"arena"`
-			City            string    `json:"city"`
-			Country         string    `json:"country"`
-			Clock           string    `json:"clock"`
-			GameDuration    string    `json:"gameDuration"`
-			CurrentPeriod   string    `json:"currentPeriod"`
-			Halftime        string    `json:"halftime"`
-			EndOfPeriod     string    `json:"EndOfPeriod"`
-			SeasonStage     string    `json:"seasonStage"`
-			StatusShortGame string    `json:"statusShortGame"`
-			StatusGame      string    `json:"statusGame"`
+			SeasonYear      string `json:"seasonYear"`
+			League          string `json:"league"`
+			GameID          string `json:"gameId"`
+			Arena           string `json:"arena"`
+			City            string `json:"city"`
+			Country         string `json:"country"`
+			Clock           string `json:"clock"`
+			GameDuration    string `json:"gameDuration"`
+			CurrentPeriod   string `json:"currentPeriod"`
+			Halftime        string `json:"halftime"`
+			EndOfPeriod     string `json:"EndOfPeriod"`
+			SeasonStage     string `json:"seasonStage"`
+			StatusShortGame string `json:"statusShortGame"`
+			StatusGame      string `json:"statusGame"`
 			VTeam           struct {
 				TeamID    string `json:"teamId"`
 				ShortName string `json:"shortName"`
